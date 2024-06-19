@@ -46,6 +46,7 @@ public class TaskController {
         Optional<Tasks> tsk = taskRepository.findById(taskid);
         if (tsk.isPresent()) {
             Tasks existtask = tsk.get();
+            existtask.setPid(task.getPid());
             existtask.setTask_assignment(task.getTask_assignment());
             existtask.setTask_duedate(task.getTask_duedate());
             existtask.setTask_name(task.getTask_name());

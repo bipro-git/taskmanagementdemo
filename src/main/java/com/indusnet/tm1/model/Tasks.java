@@ -4,10 +4,11 @@ package com.indusnet.tm1.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Tasks")
+@Table(name = "Tasks1")
 public class Tasks {
 
 //    taskid int not null auto_increment,
+//    pid int not null,
 //    task_name varchar(255) default null,
 //    task_description varchar(255) default null,
 //    task_assignment varchar(255) default null,
@@ -19,7 +20,8 @@ public class Tasks {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int taskid;
 
-
+    @Column(name="pid")
+    private int pid;
     @Column(name = "task_name")
     private String task_name;
     @Column(name = "task_description")
@@ -81,9 +83,17 @@ public class Tasks {
         this.task_duedate = task_duedate;
     }
 
+    public int getPid() {
+        return pid;
+    }
 
-    public Tasks(int taskid, String task_name, String task_description, String task_assignment, int task_priority, String task_duedate) {
+    public void setPid(int pid) {
+        this.pid = pid;
+    }
+
+    public Tasks(int taskid, int pid, String task_name, String task_description, String task_assignment, int task_priority, String task_duedate) {
         this.taskid = taskid;
+        this.pid=pid;
         this.task_name = task_name;
         this.task_description = task_description;
         this.task_assignment = task_assignment;
